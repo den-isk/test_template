@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="top_bar_black">
+<form action="" method="post" name="exit">
+    <p>{{common.button}}</p>
+</form>
+</div>
+<div class="question">
+<center>
+    <div id="question_text">
+        {{question.question_text}}
+    </div>
+<form class="form-control spaced-field" action="" method="post" name="test" id="test">
+    {% if question.question_type == "string" %}
+    <p>
+        <tr>
+        <td align="center">{{form.string}}</td><br>
+        </tr>
+    </p>
+    {% endif %}
+    {% if question.question_type == "checkbox" %}
+    <p>
+        {{question.choices[0][1]}}<br>
+        {{form.check_box_1}}<br>
+    </p>
+        <p>
+        {{question.choices[1][1]}}<br>
+        {{form.check_box_2}}<br>
+    </p>
+        <p>
+        {{question.choices[2][1]}}<br>
+        {{form.check_box_3}}<br>
+    </p>
+    <p>
+        {{question.choices[3][1]}}<br>
+        {{form.check_box_4}}<br>
+    </p>
+    <p>
+        {{question.choices[4][1]}}<br>
+        {{form.check_box_5}}<br>
+    </p>
+    <p>
+        {{question.choices[5][1]}}<br>
+        {{form.check_box_6}}<br>
+    </p>
+    {% endif %}
+    {% if question.question_type == "select" %}
+    <p>
+    {{form.select_1}}<br>
+    </p>
+    <p>
+    {{form.select_2}}<br>
+    </p>
+    <p>
+    {{form.select_3}}<br>
+    </p>
+    <p>
+    {{form.select_4}}<br>
+    </p>
+    {% endif %}
+    {% if question.question_type == "radio" %}
+    <p>
+    {{form.radio_1}}<br>
+    </p>
+    {% endif %}
+    </p>
+    <p><input type="submit" value="Test begin"></p>
+</form>
+</center>
+    <rigth>
+        <p>True answers {{res[1]}}</p>
+        <p>All answers  {{res[0]}}</p>
+    </rigth>
+</div>
+
+{% endblock %}

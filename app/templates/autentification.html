@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login1">
+<center>
+<h1>Sign In</h1>
+<form action="" method="post" name="autentification">
+    {{form.hidden_tag()}}<br><br>
+    <p>
+        Please enter your Name:<br>
+        {{form.name(size=35)}}<br>
+        {% for error in form.errors.name %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+    </p>
+    <p>
+        Please enter your Group:<br>
+        {{form.group(size=35)}}<br>
+        {% for error in form.errors.group %}
+        <span style="color: red;">[{{error}}]</span>
+        {% endfor %}<br>
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <span style="color: red;">{{ message }}</span>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <p><input type="submit" value="Test begin"></p>
+</form>
+</center>
+</div>
+{% endblock %}

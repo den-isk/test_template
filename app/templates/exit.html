@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="result">
+<center>
+<h1>Results</h1>
+    <p>Your final result is :{{res[0]}}</p>
+    <p>Your have a {{res[1]}} balls</p>
+<form action="" method="post" name="results">
+    <p>{{form.repeat}}</p>
+    <p>{{form.exit}}</p>
+</form>
+</center>
+</div>
+{% endblock %}
